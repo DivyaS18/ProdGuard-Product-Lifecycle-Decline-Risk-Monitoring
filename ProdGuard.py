@@ -1,12 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb  9 10:39:55 2026
-
-@author: saxen
-"""
 import pandas as pd
 
-fmcg=pd.read_csv('C:/Users/saxen/OneDrive/Desktop/ProdGuard2/fmcg_sales_3years_1M_rows.csv')
+fmcg=pd.read_csv('fmcg_sales_3years_1M_rows.csv')
 
 # STEP 1.1 – Overall Sales Snapshot
 
@@ -64,11 +58,6 @@ fmcg['brand_display'] = fmcg['brand'].map(brand_mapping)
 
 # Quick validation
 print(fmcg[['brand', 'brand_display']].drop_duplicates())
-
-'''I added a validation step to ensure all categorical mappings were complete 
-and no values were unintentionally dropped during visualization. This line 
-verifies that brand renaming is complete, correct, and safe before using 
-the new labels in analysis and visualization.'''
 
 
 # Create display-friendly SKU names using new brand names
@@ -563,7 +552,7 @@ sku_monthly['lifecycle_stage'] = sku_monthly.apply(
 
 sku_monthly['rolling_trend'] = sku_monthly['rolling_trend'].fillna(0)
 
-sku_monthly.to_csv('C:/Users/saxen/OneDrive/Desktop/ProdGuard2/sku_monthly.csv',index=False)
+sku_monthly.to_csv('sku_monthly.csv',index=False)
 
 
 # Check for duplicate column names
@@ -791,15 +780,15 @@ print(portfolio_summary)
 # STEP 4.7 – Export Step 4 Tables
 
 business_actions.to_csv(
-    'C:/Users/saxen/OneDrive/Desktop/ProdGuard2/business_actions.csv',
+    'business_actions.csv',
     index=False)
 
 priority_skus.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/priority_skus.csv",
+    "priority_skus.csv",
     index=False)
 
 portfolio_summary.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/portfolio_summary.csv",
+    "portfolio_summary.csv",
     index=False)
 
 #ML Related
@@ -960,17 +949,17 @@ print(
 # STEP 4.12 – Export ML Results
 
 sku_monthly.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/ml_sku_monthly.csv",
+    "ml_sku_monthly.csv",
     index=False
 )
 
 latest_ml_status.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/ml_latest_sku_status.csv",
+    "ml_latest_sku_status.csv",
     index=False
 )
 
 feature_importance.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/ml_feature_importance.csv",
+    "ml_feature_importance.csv",
     index=False
 )
 
@@ -1089,27 +1078,27 @@ priority_skus = executive_action_matrix[
 # STEP 5.6 – Export Step 5 Monitoring Tables
 
 sku_health_kpis.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/sku_health_kpis.csv",
+    "sku_health_kpis.csv",
     index=False
 )
 
 portfolio_health.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/portfolio_health.csv",
+    "portfolio_health.csv",
     index=False
 )
 
 decline_monitoring.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/decline_monitoring.csv",
+    "decline_monitoring.csv",
     index=False
 )
 
 executive_action_matrix.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/executive_action_matrix.csv",
+    "executive_action_matrix.csv",
     index=False
 )
 
 priority_skus.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/priority_skus.csv",
+    "priority_skus.csv",
     index=False)
 
 
@@ -1284,7 +1273,7 @@ print(pricing_impact_summary.head(10))
 
 #STEP 5B.12 — Export
 pricing_impact_summary.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/pricing_impact_summary.csv",
+    "pricing_impact_summary.csv",
     index=False
 )
 
@@ -1426,7 +1415,7 @@ scenario_outlook = forecast_outlook[[
 print(scenario_outlook.head(10))
 
 
-transactions=pd.read_csv('C:/Users/saxen/OneDrive/Desktop/ProdGuard2/synthetic_fmcg_transactions.csv')
+transactions=pd.read_csv('synthetic_fmcg_transactions.csv')
 transactions.columns
 
 
@@ -1590,7 +1579,7 @@ print(mba_output.head(10))
 # STEP 7.10 — Export Step 7 Results
 # ---------------------------------------------------------
 mba_output.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/mba_rules_declining_skus.csv",
+    "mba_rules_declining_skus.csv",
     index=False
 )
 
@@ -1607,7 +1596,7 @@ import ast
 # ---------------------------------------------------------
 
 mba_rules = pd.read_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/mba_rules_declining_skus.csv"
+    "mba_rules_declining_skus.csv"
 )
 
 latest_ml_status = latest_ml_status.copy()  # already in memory
@@ -1759,8 +1748,9 @@ print(bundle_recommendations.head(10))
 # ---------------------------------------------------------
 
 bundle_recommendations.to_csv(
-    "C:/Users/saxen/OneDrive/Desktop/ProdGuard2/bundle_recommendations.csv",
+    "bundle_recommendations.csv",
     index=False
 )
+
 
 
